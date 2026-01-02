@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOUSEDZ-AI | Tech Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            margin: 0; padding: 0;
+            /* نفس خلفية الفأرة المفضلة */
+            background: url('https://z-cdn-media.chatglm.cn/files/df4cae94-bae5-4bf1-8d51-54a2fb4429b7.jpg?auth_key=1867320284-a137d941c33b45ccabec0925b6873bf1-0-677147ce5499656f976e32cfdda66079') no-repeat center center fixed;
+            background-size: cover;
+            color: white; font-family: 'Cairo', sans-serif; 
+            min-height: 100vh;
+        }
+        body::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 10, 20, 0.75); /* لون أزرق داكن أكثر للتأكيد */
+            z-index: -1;
+        }
+
+        /* الشعار */
+        .brand-logo {
+            background: linear-gradient(90deg, #00f2ff, #ec4899, #8b5cf6);
+            background-size: 300% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: gradientMove 4s linear infinite;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* البطاقات الزجاجية */
+        .glass-panel {
+            background: rgba(0, 5, 15, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+        .glass-panel:hover {
+            border-color: rgba(0, 242, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* الأزرار والروابط */
+        .project-link {
+            background: linear-gradient(45deg, rgba(0, 242, 255, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .project-link:hover {
+            background: linear-gradient(45deg, rgba(0, 242, 255, 0.2), rgba(236, 72, 153, 0.2));
+            border-color: #00f2ff;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+        
+        /* شريط التمرير المخصص */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00f2ff; }
+
+        /* أزرار التاجات */
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex flex-col">
+
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-10 glass-panel p-6 rounded-3xl sticky top-4 z-50">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center shadow-[0_0_20px_rgba(0,242,255,0.4)]">
+                <span class="text-2xl">🐭</span>
+            </div>
+            <h1 class="brand-logo text-3xl md:text-5xl">MOUSEDZ-AI</h1>
+        </div>
+        <a href="https://github.com/yourusername" target="_blank" class="group flex items-center gap-2 bg-white/5 px-6 py-3 rounded-2xl border border-white/10 hover:bg-white/10 hover:border-cyan-500 transition-all">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 0 6.626-5.373 12-12zm0-18c-4.411 0-8 3.589-8 8s3.589 8 8 8c0-2.21.896-4.21 2.342-5.607l-6.345-6.345c1.657-1.657 1.657-4.429 0-6.083L16 8.041c-2.027 2.027-5.003 2.342-7.607l6.345-6.345c1.657-1.657 4.429-1.657 6.083 0l-9.345 9.345c-1.397-1.397-3.576-2.07-5.607-2.07-.696 0-1.366.141-2.027.386l6.345-6.345c-1.657-1.657-4.429-1.657-6.083 0L12 8.041c-2.027 2.027-5.003 2.342-7.607l6.345-6.345c1.657-1.657 4.429-1.657 6.083 0l-9.345 9.345c-1.397-1.397-3.576-2.07-5.607-2.07-.696 0-1.366.141-2.027.386l6.345-6.345c-1.657-1.657-4.429-1.657-6.083 0L12 8.041c-2.027 2.027-5.003 2.342-7.607l6.345-6.345c-1.657-1.657 4.429-1.657 6.083 0l-9.345 9.345c-1.397-1.397-3.576-2.07-5.607-2.07-.696 0-1.366.141-2.027.386l6.345-6.345c-1.657-1.657-4.429-1.657-6.083 0L12 8.041c-2.027 2.027-5.003 2.342-7.607l6.345-6.345c-1.657-1.657 4.429-1.657 6.083 0l-9.345 9.345c-1.397-1.397-3.576-2.07-5.607-2.07-.696 0-1.366.141-2.027.386l6.345-6.345c-1.657-1.657-4.429-1.657-6.083 0z"></path></svg>
+            <span class="text-white font-bold group-hover:text-cyan-400 transition-colors">GITHUB</span>
+        </a>
+    </header>
+
+    <!-- Main Content (Bento Grid) -->
+    <main class="flex-1 grid grid-cols-1 md:grid-cols-4 md:grid-rows-4 gap-6 auto-rows-[minmax(0,1fr),auto]">
+
+        <!-- Hero Section (Full Width on Mobile, Large on Desktop) -->
+        <div class="col-span-1 md:col-span-2 md:row-span-2 glass-panel p-10 rounded-[2.5rem] flex flex-col justify-center relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <div class="relative z-10 text-center md:text-right">
+                <p class="text-cyan-400 font-bold tracking-[0.3em] text-xs mb-4 uppercase">Welcome to the future</p>
+                <h2 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
+                    We build <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Neon Realities</span>
+                </h2>
+                <p class="text-gray-300 max-w-md mx-auto md:ml-auto mb-8">
+                    MOUSEDZ-AI Dashboard. A centralized hub for high-performance web applications, games, and futuristic interfaces.
+                </p>
+                <div class="flex gap-4 justify-center md:justify-end">
+                    <a href="https://github.com" class="bg-white text-black px-8 py-3 rounded-xl font-bold hover:bg-gray-200 transition">Explore</a>
+                    <button class="border border-cyan-500 text-cyan-400 px-8 py-3 rounded-xl font-bold hover:bg-cyan-500 hover:text-black transition">Contact</button>
+                </div>
+            </div>
+            <!-- Decorative graphic -->
+            <div class="absolute -right-20 -bottom-20 text-[10rem] opacity-10 rotate-12 text-white select-none">AI</div>
+        </div>
+
+        <!-- Project 1: DZ-CONNECT -->
+        <div class="col-span-1 md:col-span-2 glass-panel p-6 rounded-[2rem] project-link flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold">DZ</div>
+                    <span class="tag px-2 py-1 rounded-md text-blue-300">IPTV / Streaming</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">DZ-CONNECT Hub</h3>
+                <p class="text-gray-400 text-sm mb-4">Advanced IPTV platform with live channels, voice chat, and neon arena integration.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="tag px-2 py-0.5 rounded text-gray-300">Flask</span>
+                    <span class="tag px-2 py-0.5 rounded text-gray-300">Socket.IO</span>
+                    <span class="tag px-2 py-0.5 rounded text-gray-300">API</span>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-4 pt-4 border-t border-white/5">
+                <div class="text-[10px] text-gray-500 uppercase tracking-wider">Status: Online</div>
+                <a href="#" class="text-blue-400 font-bold text-sm hover:text-blue-300">View Project &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Stats Card -->
+        <div class="col-span-1 md:col-span-1 md:row-span-1 glass-panel p-6 rounded-[2rem] flex flex-col justify-center items-center text-center">
+            <div class="text-5xl font-black text-cyan-400 mb-2">3</div>
+            <div class="text-sm font-bold text-gray-400 uppercase tracking-widest">Active Projects</div>
+            <div class="w-full bg-white/10 h-1 mt-4 rounded-full overflow-hidden">
+                <div class="bg-cyan-400 h-full w-2/3 animate-pulse"></div>
+            </div>
+        </div>
+
+        <!-- Project 2: Neon Arena -->
+        <div class="col-span-1 md:col-span-1 md:row-span-2 glass-panel p-6 rounded-[2rem] project-link flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold">NA</div>
+                    <span class="tag px-2 py-1 rounded-md text-purple-300">Gaming / Web</span>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-2">Neon Arena</h3>
+                <p class="text-gray-400 text-sm mb-4">Real-time multiplayer dominoes arena with voice chat capabilities.</p>
+                <div class="flex gap-2 mb-4">
+                    <span class="tag px-2 py-0.5 rounded text-gray-300">JS</span>
+                    <span class="tag px-2 py-0.5 rounded text-gray-300">Canvas</span>
+                </div>
+            </div>
+            <div class="flex justify-between items-center mt-4 pt-4 border-t border-white/5">
+                <div class="text-[10px] text-gray-500 uppercase tracking-wider">Status: Live</div>
+                <a href="#" class="text-purple-400 font-bold text-sm hover:text-purple-300">Play Now &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="col-span-1 md:col-span-1 md:row-span-1 glass-panel p-6 rounded-[2rem]">
+            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Tech Stack</h4>
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded bg-gray-700 flex items-center justify-center text-white font-bold text-xs">F</div>
+                    <div class="flex-1 h-2 bg-white/10 rounded-full">
+                        <div class="w-3/4 h-full bg-blue-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded bg-gray-700 flex items-center justify-center text-white font-bold text-xs">S</div>
+                    <div class="flex-1 h-2 bg-white/10 rounded-full">
+                        <div class="w-1/2 h-full bg-purple-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded bg-gray-700 flex items-center justify-center text-white font-bold text-xs">P</div>
+                    <div class="flex-1 h-2 bg-white/10 rounded-full">
+                        <div class="w-full h-full bg-cyan-500 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latest Activity / Terminal -->
+        <div class="col-span-1 md:col-span-2 glass-panel p-6 rounded-[2rem] relative overflow-hidden">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-white">System Log</h3>
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            </div>
+            <div class="font-mono text-xs md:text-sm text-gray-400 space-y-2">
+                <p>[<span class="text-green-400">SUCCESS</span>] Project 'mousedz-ai' initialized.</p>
+                <p>[<span class="text-blue-400">INFO</span>] Loading modules...</p>
+                <p>[<span class="text-cyan-400">READY</span>] Dashboard active on port 5000.</p>
+                <p>[<span class="text-purple-400">UPDATE</span>] DZ-CONNECT database synced.</p>
+            </div>
+            <!-- Background glow -->
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500 rounded-full blur-[80px] opacity-20"></div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-span-1 md:col-span-2 glass-panel p-6 rounded-[2rem] grid grid-cols-2 gap-4">
+            <a href="#" class="project-link p-4 rounded-xl flex flex-col items-center justify-center text-center h-full">
+                <div class="w-12 h-12 bg-blue-900/50 rounded-full mb-2 flex items-center justify-center">📺</div>
+                <span class="text-white font-bold text-sm">Channels</span>
+            </a>
+            <a href="#" class="project-link p-4 rounded-xl flex flex-col items-center justify-center text-center h-full">
+                <div class="w-12 h-12 bg-purple-900/50 rounded-full mb-2 flex items-center justify-center">🎮</div>
+                <span class="text-white font-bold text-sm">Arena</span>
+            </a>
+            <a href="#" class="project-link p-4 rounded-xl flex flex-col items-center justify-center text-center h-full">
+                <div class="w-12 h-12 bg-pink-900/50 rounded-full mb-2 flex items-center justify-center">🎤</div>
+                <span class="text-white font-bold text-sm">Voice</span>
+            </a>
+            <a href="#" class="project-link p-4 rounded-xl flex flex-col items-center justify-center text-center h-full">
+                <div class="w-12 h-12 bg-cyan-900/50 rounded-full mb-2 flex items-center justify-center">🐍</div>
+                <span class="text-white font-bold text-sm">Python</span>
+            </a>
+        </div>
+
+        <!-- Footer / Contact -->
+        <div class="col-span-1 md:col-span-4 glass-panel p-8 rounded-[2rem] flex justify-between items-center mt-auto">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full border border-cyan-500/50 bg-black/40 flex items-center justify-center text-cyan-400 font-bold">AI</div>
+                <div>
+                    <div class="text-white font-bold">MOUSEDZ-AI</div>
+                    <div class="text-[10px] text-gray-400">Next Gen Development</div>
+                </div>
+            </div>
+            <p class="text-gray-500 text-[10px] uppercase tracking-widest hidden md:block">© 2026 All Rights Reserved</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
